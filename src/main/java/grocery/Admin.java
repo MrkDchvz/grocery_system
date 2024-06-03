@@ -45,6 +45,7 @@ import grocery.Login;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import utils.AccountUtils;
 
 
 /**
@@ -1377,6 +1378,11 @@ public class Admin extends javax.swing.JFrame {
         jLabel29.setText("Account");
 
         logout_btn.setText("Logout");
+        logout_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logout_btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
         jPanel29.setLayout(jPanel29Layout);
@@ -1629,6 +1635,12 @@ public class Admin extends javax.swing.JFrame {
         SwingUtilities.updateComponentTreeUI(this);
         
     }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_btnActionPerformed
+        // TODO add your handling code here:
+        AccountUtils.logOut(this);
+        
+    }//GEN-LAST:event_logout_btnActionPerformed
 
     /**
      * @param args the command line arguments
