@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2024 at 08:04 AM
+-- Generation Time: Jun 03, 2024 at 06:14 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `accounts` (
   `account_id` int(11) NOT NULL,
   `account_name` varchar(255) NOT NULL,
-  `account_type` enum('ADMIN','STANDARD') NOT NULL DEFAULT 'STANDARD',
+  `account_type` enum('ADMIN','EMPLOYEE') NOT NULL DEFAULT 'EMPLOYEE',
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -39,7 +39,8 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`account_id`, `account_name`, `account_type`, `password`) VALUES
-(1, 'ADMIN', 'ADMIN', '123');
+(1, 'ADMIN', 'ADMIN', '123'),
+(2, 'EMPLOYEE', 'EMPLOYEE', '123');
 
 -- --------------------------------------------------------
 
@@ -175,7 +176,8 @@ INSERT INTO `products` (`product_id`, `product_name`, `price`, `quantity_availab
 (22, 'PANCAKES', 1, 10, 'FOOD', 0, '2024-05-01', '2024-05-31'),
 (23, 'PIATOS', 12, 18, 'SNACKS', 1, '2024-05-01', '2024-05-31'),
 (24, 'COFFEE', 9, 8, 'DRINKS', 1, '2024-05-28', '2024-05-31'),
-(25, 'BURGER', 21, 12, 'FOOD', 1, '2024-05-29', '2024-06-11');
+(25, 'BURGER', 21, 12, 'FOOD', 1, '2024-05-29', '2024-06-11'),
+(26, 'FRIES', 12, 12, 'FOOD', 0, '2024-06-03', '2024-06-21');
 
 --
 -- Indexes for dumped tables
@@ -216,7 +218,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -234,7 +236,7 @@ ALTER TABLE `order_details`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables
